@@ -1,11 +1,9 @@
+import About from '@/features/components/About'
 import React from 'react'
-import Home from '@/features/components/Home'
 
 const page = () => {
   return (
-    <div>
-      <Home/>
-    </div>
+    <div><About/></div>
   )
 }
 
