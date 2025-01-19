@@ -14,7 +14,7 @@ export default function ServerLayout({
   return (
     <RootLayout>
       <Header/>
-      <div className="pt-16">
+      <div className="">
         {children}
       </div>
       <Footer/>
