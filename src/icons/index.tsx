@@ -29,7 +29,7 @@ export const ColonIcon = ({ size = "original", className }: iconProp) => {
       </g>
       <defs>
       <filter id="filter0_d_569_10665" x="0.560059" y="0.759766" width="54.48" height="32.1602" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feFlood floodOpacity="0" result="BackgroundImageFix"/>
       <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
       <feOffset/>
       <feComposite in2="hardAlpha" operator="out"/>
