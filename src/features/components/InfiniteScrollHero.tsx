@@ -63,7 +63,7 @@ const InfiniteScrollHero = () => {
   }, []); 
 
   return (
-    <div className="w-full h-screen bg-transparent flex justify-between px-4">
+    <div className="w-full h-screen bg-transparent flex justify-between px-2 md:px-4">
       {[0, 1, 2].map((columnIndex) => (
         <div
           key={columnIndex}
@@ -82,7 +82,7 @@ const InfiniteScrollHero = () => {
             {[...columnImages[columnIndex], ...columnImages[columnIndex]].map((image, imageIndex) => (
               <div
                 key={imageIndex}
-                className="p-4"
+                className="p-2 md:p-4"
                 style={{ height: `${image.height}px` }}
               >
                 <Image

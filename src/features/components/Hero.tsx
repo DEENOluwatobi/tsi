@@ -6,14 +6,14 @@ import InfiniteScrollHero from './InfiniteScrollHero';
 
 const Hero = () => {
   return (
-    <div className='w-full h-[95vh] flex flex-col md:flex-row justify-center items-center overflow-hidden'>
-        <div className='w-full md:w-[50%] flex flex-col gap-6 justify-center px-4'>
+    <div className='w-full h-full md:h-[95vh] flex flex-col md:flex-row justify-center items-center overflow-hidden'>
+        <div className='w-full md:w-[50%] flex flex-col gap-6 justify-center px-4 pt-40 pb-10 md:pt-0 md:pb-0'>
             <motion.h1
             variants={fadeIn('down', 0.1)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className="text-[3.5rem] leading-[4rem] font-extrabold bg-clip-text text-transparent bg-gradient-to-tr from-blue-500  to-red-500 [text-shadow:_2px_2px_2px_rgb(0_0_0_/_20%)] relative"
+            className="text-[2.5rem] md:text-[3.5rem] leading-[3rem] md:leading-[4rem] text-center md:text-left font-extrabold bg-clip-text text-transparent bg-gradient-to-tr from-blue-500  to-red-500 [text-shadow:_2px_2px_2px_rgb(0_0_0_/_20%)] relative"
             style={{
                 WebkitBackgroundClip: 'text',
                 backgroundSize: '200% auto',
@@ -49,7 +49,7 @@ const Hero = () => {
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className='w-[200px] h-[50px] bg-red-500 rounded-full text-white flex items-center justify-center'
+            className='mx-auto md:mx-0 w-[200px] h-[50px] bg-red-500 rounded-full text-white flex items-center justify-center'
             >
                 Join Us Today!
             </motion.button>

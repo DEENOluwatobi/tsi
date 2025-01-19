@@ -17,7 +17,7 @@ const Header = () => {
 
     const menu = [
         {title: 'Home', link: '/'},
-        {title: 'Testimonials', link: '/testimonials'},
+        {title: 'What We Do', link: '/testimonials'},
         {title: 'About', link: '/about'},
         {title: 'Contact', link: '/contact'}
     ]
@@ -104,7 +104,7 @@ const Header = () => {
 
                 {/* Sliding Menu */}
                 <div
-                className={`absolute top-0 z-[99] left-0 w-full bg-gray-100 h-[500px] shadow-md transition-transform duration-300 ${
+                className={`flex md:hidden absolute top-0 z-[99] left-0 w-full bg-gray-100 h-[500px] shadow-md transition-transform duration-300 ${
                 isOpen ? 'translate-y-0' : '-translate-y-full'
                 }`}
                 >

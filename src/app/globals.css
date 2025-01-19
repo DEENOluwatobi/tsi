@@ -10,3 +10,33 @@ body{
 .barlow{
   font-family: 'Barlow', sans-serif;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+@media (max-width: 667px) {
+  ::-webkit-scrollbar {
+    display: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  padding: .5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  border-radius: 50px;
+  background: #ff3700;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #222222;
+}

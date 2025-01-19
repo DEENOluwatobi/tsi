@@ -12,13 +12,13 @@ import Image6 from '@/assets/images/image6.jpg';
 const About = () => {
   return (
     <div>
-        <div className="py-20 flex justify-center items-center bg-white">
+        <div className="pt-20 md:py-20 flex justify-center items-center bg-white">
             <motion.h1
             variants={fadeIn('up', 0.1)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className="text-[10rem] font-extrabold bg-clip-text text-transparent pt-16"
+            className="text-[4rem] md:text-[10rem] font-extrabold bg-clip-text text-transparent md:pt-16"
             style={{
             backgroundImage: `url(${Image1.src})`,
             backgroundSize: 'cover',
@@ -29,14 +29,14 @@ const About = () => {
             </motion.h1>
         </div>
         
-        <div className='relative flex flex-col w-full md:flex-row bg-white py-5 md:py-20 overflow-hidden'>
+        <div className='relative flex flex-col-reverse w-full md:flex-row bg-white py-5 md:py-20 overflow-hidden'>
             <div className='w-full md:w-50% flex justify-center items-center'>
                 <div
                 style={{ 
                     backgroundImage: `url(${Image2.src})`,
                     backgroundSize: 'cover', 
                 }}
-                className='w-[90%] h-[300px] rounded-2xl'
+                className='w-[90%] h-[300px] rounded-2xl relative z-10'
                 >
 
                 </div>
