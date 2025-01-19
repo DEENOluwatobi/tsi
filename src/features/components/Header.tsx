@@ -1,14 +1,19 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/assets/logo/logo.png'
 import { usePathname } from 'next/navigation';
-import { AtSign, Facebook, Instagram, Linkedin, Phone } from 'lucide-react';
+import { AtSign, Facebook, Instagram, Linkedin, Phone, Menu, X } from 'lucide-react';
 import { Xicon2 } from '@/icons';
 
 const Header = () => {
     const pathname = usePathname();
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
 
     const menu = [
         {title: 'Home', link: '/'},
@@ -49,7 +54,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className='w-full h-20 px-2 md:px-4 py-2 flex justify-between items-center bg-white/50 backdrop-blur-[5px] shadow-sm overflow-hidden'>
+            <div className='w-full h-20 px-2 md:px-4 py-2 flex justify-between items-center bg-white/50 backdrop-blur-[5px] shadow-sm'>
                 <Link href="/">
                     <div className='w-auto h-[50px]'>
                         <Image
@@ -62,7 +67,7 @@ const Header = () => {
                     </div>
                 </Link>
 
-                <div className='flex gap-8 justify-center items-center'>
+                <div className='hidden md:flex gap-8 justify-center items-center'>
                     {menu.map((link, index) => (
                         <Link 
                         key={index} 
@@ -81,8 +86,58 @@ const Header = () => {
                     ))}
                 </div>
 
-                <div>
+                <div className='hidden md:flex'>
                     <button className='bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
+                        <span>Donate</span>
+                    </button>
+                </div>
+                
+                {/* ---- MOBILE MENU ---- */}
+                <div className="flex md:hidden">
+                    <button
+                    onClick={toggleMenu}
+                    className="p-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none"
+                    >
+                        {isOpen ? <X className='w-6 h-6 text-gray-800'/> : <Menu className='w-6 h-6 text-gray-800'/>}
+                    </button>
+                </div>
+
+                {/* Sliding Menu */}
+                <div
+                className={`absolute top-0 z-[99] left-0 w-full bg-gray-100 h-[500px] shadow-md transition-transform duration-300 ${
+                isOpen ? 'translate-y-0' : '-translate-y-full'
+                }`}
+                >
+                    <div className="flex items-center justify-between p-4">
+                        <h2 className="text-lg font-semibold">Menu</h2>
+                        <button
+                            onClick={toggleMenu}
+                            className="p-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none"
+                        >
+                            <X size={24} />
+                        </button>
+                    </div>
+
+                    <div className="p-4 flex flex-col gap-6">         
+                        {menu.map((link, index) => (
+                            <Link 
+                            key={index} 
+                            href={link.link} 
+                            className='relative group'
+                            >
+                                <span className='font-medium text-[.9em] text-black/80'>{link.title}</span>
+                                <div
+                                    className={`${
+                                        pathname === link.link
+                                            ? 'w-6'
+                                            : 'w-0 group-hover:w-10 group-hover:scale-x-100'
+                                    } absolute -bottom-1 left-4 transform -translate-x-1/2 h-[3px] bg-red-500 transition-all duration-300 origin-center`}
+                                ></div>
+                            </Link>
+                        ))}
+                    </div>
+
+                    <button className='ml-4 mt-4 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
                         <span>Donate</span>
                     </button>
                 </div>
