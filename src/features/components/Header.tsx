@@ -82,7 +82,7 @@ const Header = () => {
                 </div>
 
                 <div>
-                    <button className='bg-gradient-to-br from-blue-500 to-red-500 shadow-lg shadow-blue-300 hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
+                    <button className='bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
                         <span>Donate</span>
                     </button>
                 </div>

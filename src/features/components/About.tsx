@@ -2,34 +2,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/lib/variants';
+import Image1 from '@/assets/images/image.jpg';
+import Image2 from '@/assets/images/image2.jpg';
+import Image3 from '@/assets/images/image3.jpg';
+import Image4 from '@/assets/images/image4.jpg';
+import Image5 from '@/assets/images/image5.jpg';
+import Image6 from '@/assets/images/image6.jpg';
 
 const About = () => {
   return (
     <div>
-        <div className="py-20 flex justify-center items-center bg-gray-100">
-            {/* <motion.h1
+        <div className="py-20 flex justify-center items-center bg-white">
+            <motion.h1
             variants={fadeIn('up', 0.1)}
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className="text-[10rem] font-extrabold bg-clip-text text-transparent"
+            className="text-[10rem] font-extrabold bg-clip-text text-transparent pt-16"
             style={{
-            backgroundImage: `url(${House.src})`,
+            backgroundImage: `url(${Image1.src})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             }}
             >
                 About Us
-            </motion.h1> */}
+            </motion.h1>
         </div>
         
         <div className='relative flex flex-col w-full md:flex-row bg-white py-5 md:py-20 overflow-hidden'>
             <div className='w-full md:w-50% flex justify-center items-center'>
                 <div
-                // style={{ 
-                //     backgroundImage: `url(${House2.src})`,
-                //     backgroundSize: 'cover', 
-                // }}
+                style={{ 
+                    backgroundImage: `url(${Image2.src})`,
+                    backgroundSize: 'cover', 
+                }}
                 className='w-[90%] h-[300px] rounded-2xl'
                 >
 
@@ -41,13 +47,10 @@ const About = () => {
                     Who We Are
                 </h2>
                 <p className='text-gray-700 text-[.9em]'>
-                    Welcome to <span className="font-bold text-orange-500">RentNaija</span>, 
-                    your trusted platform for finding the perfect home. Whether you&apos;re 
-                    looking for a cozy apartment, a spacious family house, or a luxury 
-                    rental, we are here to connect you with the best options tailored to 
-                    your needs. With a focus on convenience, reliability, and customer 
-                    satisfaction, we&apos;ve been revolutionizing the rental market for 
-                    <span className="font-semibold"> 20 years</span>.
+                    At SkillUp Initiative, we are driven by a passion to transform lives and uplift 
+                    underserved communities through the power of technology. Our mission is to empower 
+                    individuals in these communities by providing access to tech education and 
+                    fostering innovation, ensuring no one is left behind in the digital age.
                 </p>
             </div>
 
@@ -77,10 +80,10 @@ const About = () => {
 
             <div className='w-full md:w-50%'>
                 <div
-                // style={{ 
-                //     backgroundImage: `url(${House3.src})`,
-                //     backgroundSize: 'cover', 
-                // }}
+                style={{ 
+                    backgroundImage: `url(${Image3.src})`,
+                    backgroundSize: 'cover', 
+                }}
                 className='w-[90%] h-[300px] rounded-2xl'
                 >
 
