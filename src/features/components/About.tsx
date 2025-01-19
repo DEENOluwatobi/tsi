@@ -42,12 +42,12 @@ const About = () => {
                 </div>
             </div>
             <div className="relative z-10 w-full md:w-50% py-10 px-6 md:px-12 flex flex-col gap-1">
-                <h1 className='text-[.8em] font-bold text-orange-500'>ABOUT US</h1>
+                <h1 className='text-[.9em] font-bold text-blue-500'>ABOUT US</h1>
                 <h2 className='text-gray-700 text-[1.8em] font-semibold'>
                     Who We Are
                 </h2>
                 <p className='text-gray-700 text-[.9em]'>
-                    At SkillUp Initiative, we are driven by a passion to transform lives and uplift 
+                    At <span className='font-semibold text-red-500'>The SkillUp Initiative</span>, we are driven by a passion to transform lives and uplift 
                     underserved communities through the power of technology. Our mission is to empower 
                     individuals in these communities by providing access to tech education and 
                     fostering innovation, ensuring no one is left behind in the digital age.
@@ -59,23 +59,29 @@ const About = () => {
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className='absolute -z-0 -right-20 -bottom-40 w-[500px] h-[500px] rounded-full bg-orange-500'>
+            className='absolute -z-0 -right-20 -bottom-40 w-[500px] h-[500px] rounded-full bg-red-500'>
                 
             </motion.div>
         </div>
 
         <div className='relative flex flex-col w-full md:flex-row bg-black bg-opacity-80 py-5 md:py-20 overflow-hidden'>
             <div className="relative z-10 w-full md:w-50% py-10 px-6 md:px-12 flex flex-col gap-1">
-                <h1 className='text-[.8em] font-bold text-orange-500'>OUR MISSION</h1>
-                <h2 className='text-gray-300 text-[1.8em] font-semibold'>
+                <h1 className='text-[.9em] font-bold text-red-500'>OUR MISSION</h1>
+                <h2 className='text-gray-300 text-[1.9em] font-semibold'>
                     What Our Mission Is
                 </h2>
-                <p className='text-gray-100 text-[.9em]'>
-                    At <span className="font-bold text-orange-500">RentNaija</span>, our mission is 
-                    simple: to make the rental process smooth, secure, and enjoyable. We strive to 
-                    empower renters and property owners by bridging the gap between them, ensuring 
-                    that every rental experience is hassle-free and rewarding.
-                </p>
+                <p className='text-gray-100 text-[.9em] flex flex-col gap-4'>
+                    <span>
+                        Our mission is to empower underserved communities by providing access to tech education and fostering innovation. We aim to create opportunities where the&apos;re needed most, ensuring everyone has the tools to succeed in a rapidly evolving digital world.
+                        We understand the challenges faced by many in underserved areas; limited access to resources, opportunities, and mentorship. That&apos;s why we&apos;ve made it our purpose to bridge this gap. Through hands-on training and guidance, we equip individuals with practical skills that open doors to brighter futures, helping them not just to dream but to achieve.
+                    </span>
+                     <span>
+                        For us, this is more than just teaching tech skills. it&apos;s about igniting a love for learning, inspiring creativity, and building confidence. It&apos;s about showing people their potential and helping them see that they can be leaders, innovators, and change-makers in their communities.
+                    </span>
+                    <span>
+                        At SkillUp Initiative, we&apos;re not just shaping skills; we&apos;re shaping lives. One person at a time, one community at a time, we&apos;re creating a ripple effect of progress, hope, and empowerment.
+                    </span>
+                    </p>
             </div>
 
             <div className='w-full md:w-50%'>
@@ -95,35 +101,12 @@ const About = () => {
             initial='hidden'
             whileInView={'show'}
             viewport={{ once: false, amount: 0.1 }}
-            className='absolute -z-0 -left-20 -top-40 w-[450px] h-[450px] rounded-full bg-gray-500'>
+            className='absolute -z-0 -left-20 -top-40 w-[450px] h-[450px] rounded-full bg-blue-500'>
                 
             </motion.div>
         </div>
 
-        <section className="py-10 md:py-20 px-6 md:px-12 bg-gray-100 flex flex-col justify-center items-center gap-2">
-            <h1 className='text-[.8em] font-bold text-orange-500'>WHY CHOOSE US?</h1>
-            <h2 className='text-gray-700 text-[1.8em] font-semibold'>
-                Why Choose RentNaija?
-            </h2>
-            <p className="text-[1em] leading-7 text-center mb-6">
-                Choosing <span className="font-bold text-orange-500">RentNaija</span> means 
-                transparency, efficiency, and a diverse range of properties for every lifestyle.
-            </p>
-            <div className="max-w-[800px] flex flex-col md:flex-row justify-center gap-2 md:gap-4 mt-4">
-                <div className="p-6 bg-white shadow-md rounded-md">
-                    <h3 className="font-bold text-gray-700">Transparency</h3>
-                    <p>No hidden fees or ambiguous terms.</p>
-                </div>
-                <div className="p-6 bg-black shadow-md rounded-md">
-                    <h3 className="font-bold text-orange-500">Efficiency</h3>
-                    <p className='text-white'>Fast-tracked rental processes to save you time.</p>
-                </div>
-                <div className="p-6 bg-orange-500 shadow-md rounded-md">
-                    <h3 className="font-bold text-gray-100">Diversity</h3>
-                    <p className='text-white'>Rentals for city living, family retreats, and more.</p>
-                </div>
-            </div>
-        </section>
+        
 
     </div>
   );
