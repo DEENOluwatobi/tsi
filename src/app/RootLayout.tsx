@@ -18,12 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={``}
+        className={`w-full h-full overflow-x-hidden`}
       >
         {children}
         
         <Particles
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 w-full"
           quantity={100}
           ease={80}
           color={color}
