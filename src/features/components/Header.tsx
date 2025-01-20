@@ -104,7 +104,7 @@ const Header = () => {
 
                 {/* Sliding Menu */}
                 <div
-                className={`flex md:hidden absolute top-0 z-[99] left-0 w-full bg-gray-100 h-[500px] shadow-md transition-transform duration-300 ${
+                className={`flex md:hidden flex-col gap-5 absolute top-0 z-[99] left-0 w-full bg-gray-100 h-[500px] shadow-md transition-transform duration-300 ${
                 isOpen ? 'translate-y-0' : '-translate-y-full'
                 }`}
                 >
@@ -137,7 +137,7 @@ const Header = () => {
                         ))}
                     </div>
 
-                    <button className='ml-4 mt-4 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
+                    <button className='ml-4 mt-4 w-32 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
                         <span>Donate</span>
                     </button>
                 </div>
