@@ -15,7 +15,7 @@ const Subscribe = () => {
             placeholder='Enter email to join our newsletter'
           />
         </div>
-        <Button className='w-[200px] h-full lg:w-auto bg-gradient-to-r from-[bg-gradient-to-l from-[#21367a] to-[#1b84fc] text-white text-[.8em] md:text-[.9em] px-6 py-2 md:py-4 rounded-full cursor-pointer'>
+        <Button className='w-full md:w-[200px] h-full lg:w-auto bg-gradient-to-r from-[bg-gradient-to-l from-[#21367a] to-[#1b84fc] text-white text-[.8em] md:text-[.9em] px-6 py-4 rounded-full cursor-pointer'>
           Subscribe
         </Button>
       </div>

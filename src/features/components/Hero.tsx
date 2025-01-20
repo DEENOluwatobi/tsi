@@ -7,7 +7,7 @@ import InfiniteScrollHero from './InfiniteScrollHero';
 const Hero = () => {
   return (
     <div className='w-full h-full md:h-[95vh] flex flex-col md:flex-row justify-center items-center overflow-hidden'>
-        <div className='w-full md:w-[50%] flex flex-col gap-6 justify-center px-4 pt-40 pb-10 md:pt-0 md:pb-0'>
+        <div className='w-full md:w-[50%] flex flex-col gap-6 justify-center px-4 pt-32 pb-10 md:pt-0 md:pb-0'>
             <motion.h1
             variants={fadeIn('down', 0.1)}
             initial='hidden'
