@@ -2,7 +2,6 @@
 import React from 'react';
 import logo from '@/assets/logo/logo.png';
 import Image from 'next/image';
-import { FacebookIcon, InstagramIcon, LinkedInIcon, TwitterIcon } from '@/icons';
 
 const Footer = () => {
   return (
@@ -11,14 +10,14 @@ const Footer = () => {
           <div className=''>
             <Image src={logo} alt='logo' className='h-16 w-auto'/>
           </div>
-          <p className='text-center text-[.9em]'>
+          <p className='text-center text-[.8em] md:text-[.9em]'>
             Copyright &copy; 2025 <span className='text-red-500'>The Skillup Initiative</span>, All rights reserved
           </p>
       </div>
 
-      <div className='flex w-full text-[.9em] px-4 md:justify-center items-center'>
-       
-      </div>
+      <p className='barlow w-full text-[.7em] md:text-[.8em] py-2 text-center border-t border-gray-500'>
+        Designed by <span className='text-red-500 font-medium cursor-pointer'> DEENOluwatobi</span>
+      </p>
     </div>
   )
 }
