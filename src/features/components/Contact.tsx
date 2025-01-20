@@ -42,7 +42,7 @@ ${formData.message}`;
         <CardHeader className="text-center">
           <CardTitle className="text-2xl font-bold text-gray-900">Contact Us</CardTitle>
           <CardDescription className="text-gray-600">
-            Send us a message and we'll get back to you as soon as possible.
+            Send us a message and we&apos;ll get back to you as soon as possible.
           </CardDescription>
         </CardHeader>
         <CardContent>
