@@ -20,8 +20,8 @@ const Hero = () => {
                 animation: 'shine 4s linear infinite',
             }}
             >
-            <span>Empower Communities, </span>
-            <span>Shaping Futures</span>
+            <span>We Empower Underrepresented </span>
+            <span>Youth to Succeed </span>
 
             <style jsx>{`
                 @keyframes shine {
@@ -39,9 +39,7 @@ const Hero = () => {
             viewport={{ once: false, amount: 0.1 }}
             className='w-full text-center md:text-left text-gray-600 text-[.9em]'
             >
-                Unlock opportunities with tech education tailored for underserved communities. 
-                At SkillUp Initiative, we&apos;re bridging the gap, fostering innovation, and building 
-                brighter tomorrows.
+                Our aim is to bridge the education, mentoring, and opportunities gap for underrepresented youth in Sub-Saharan Africa. 
             </motion.p>
             
             <motion.button
