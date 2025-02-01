@@ -109,7 +109,7 @@ const Header = () => {
                 }`}
                 >
                     <div className="flex items-center justify-between p-4">
-                        <h2 className="text-lg font-semibold">Menu</h2>
+                        <p className="text-lg font-semibold">Menu</p>
                         <button
                             onClick={toggleMenu}
                             className="p-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 focus:outline-none"
