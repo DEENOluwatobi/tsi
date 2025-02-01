@@ -39,7 +39,7 @@ const Hero = () => {
             viewport={{ once: false, amount: 0.1 }}
             className='w-full text-center md:text-left text-gray-600 text-[.9em]'
             >
-                Our aim is to bridge the education, mentoring, and opportunities gap for underrepresented youth in Sub-Saharan Africa. 
+                Our aim is to use skills acquisition, and empowerment to bridge the education, mentoring, and career opportunities gap for underrepresented youth in Sub-Saharan Africa. 
             </motion.p>
             
             <motion.button
