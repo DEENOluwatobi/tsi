@@ -20,8 +20,8 @@ const Hero = () => {
                 animation: 'shine 4s linear infinite',
             }}
             >
-            <span>We Empower Underrepresented </span>
-            <span>Youth to Succeed </span>
+            <span>We Empower & Provide Skill </span>
+            <span>Acquisition for Underrepresented Youth </span>
 
             <style jsx>{`
                 @keyframes shine {
@@ -49,7 +49,7 @@ const Hero = () => {
             viewport={{ once: false, amount: 0.1 }}
             className='mx-auto md:mx-0 w-[200px] h-[50px] bg-red-500 rounded-full text-white flex items-center justify-center'
             >
-                Join Us Today!
+                Join Now!
             </motion.button>
 
         </div>
