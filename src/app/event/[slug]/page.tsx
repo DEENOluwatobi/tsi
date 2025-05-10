@@ -2,9 +2,9 @@ import React from 'react';
 import { Calendar, Clock, MapPin, ArrowLeft, ExternalLink } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { Event } from '../../../types/event';
-import { events } from '../../../data/events';
-import { getEventBySlug } from '../../../types/event';
+import { Event } from '@/types/event';
+import { events } from '@/data/events';
+import { getEventBySlug } from '@/types/event';
 
 type PageProps = {
   params: {
@@ -24,8 +24,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  // Wait for params to resolve
-  const { slug } = await Promise.resolve(params);
+  const { slug } = params;
   
   const event = events.find((event) => {
     const eventSlug = event.title.toLowerCase()
@@ -43,9 +42,8 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default async function EventPage({ params }: PageProps) {
-  // Wait for params to resolve
-  const { slug } = await Promise.resolve(params);
+export default function EventPage({ params }: PageProps) {
+  const { slug } = params;
   
   // Get slug from URL
   const event = getEventBySlug(events, slug);
