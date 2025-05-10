@@ -7,9 +7,9 @@ import { events } from '@/data/events';
 import { getEventBySlug } from '@/types/event';
 
 type PageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export async function generateStaticParams() {
@@ -24,7 +24,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
-  const { slug } = params;
+  // Wait for params to resolve
+  const { slug } = await params;
   
   const event = events.find((event) => {
     const eventSlug = event.title.toLowerCase()
@@ -42,8 +43,9 @@ export async function generateMetadata({ params }: PageProps) {
   };
 }
 
-export default function EventPage({ params }: PageProps) {
-  const { slug } = params;
+export default async function EventPage({ params }: PageProps) {
+  // Wait for params to resolve
+  const { slug } = await params;
   
   // Get slug from URL
   const event = getEventBySlug(events, slug);
