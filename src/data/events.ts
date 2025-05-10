@@ -9,7 +9,7 @@ export const events: Event[] = [
         date: "May 10, 2025",
         time: "8:00 PM",
         location: "Virtual",
-        type: "Masterclass",
+        type: "Webinar",
         spots: 15,
         image: Tobi,
         link: 'https://meet.google.com/mjy-njdh-byo',

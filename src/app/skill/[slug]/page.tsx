@@ -23,7 +23,7 @@ const SkillDetail = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
             {/* Header with gradient background */}
-            <div className={`bg-gradient-to-r ${skill.gradient} py-16 md:pt-32 px-4 md:px-8 lg:px-16`}>
+            <div className={`bg-gradient-to-r ${skill.gradient} py-16 pt-32 px-4 md:px-8 lg:px-16`}>
                 <div className="max-w-7xl mx-auto">
                 <Link href="/" className="inline-flex items-center text-white mb-8 hover:underline transition-all">
                     <ArrowLeft className="mr-2 h-5 w-5" />
@@ -31,8 +31,8 @@ const SkillDetail = () => {
                 </Link>
                 
                 <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0">
-                    <div className="bg-white p-4 rounded-lg mr-6">
-                    <skill.icon className={`h-12 w-12 bg-gradient-to-r ${skill.gradient} bg-clip-text text-transparent`} />
+                    <div className="border border-gray-500 bg-gradient-to-r ${skill.gradient} p-4 rounded-lg mr-6">
+                        <skill.icon className={`h-12 w-12  text-white`} />
                     </div>
                     
                     <div>
