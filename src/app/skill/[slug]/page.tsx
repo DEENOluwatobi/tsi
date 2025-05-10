@@ -106,7 +106,7 @@ const SkillDetail = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {skill.testimonials.map((testimonial, index) => (
                                         <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-                                        <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
+                                        <p className="text-gray-700 italic mb-4">&quot;{testimonial.quote}&quot;</p>
                                             <div>
                                                 <p className="font-semibold">{testimonial.name}</p>
                                                 <p className="text-gray-500 text-sm">{testimonial.title}</p>
@@ -124,14 +124,14 @@ const SkillDetail = () => {
                             {/* Pricing */}
                             {skill.pricing && (
                                 <div className="mb-8">
-                                    <h3 className="text-xl font-bold mb-4">Pricing</h3>
+                                    {/* <h3 className="text-xl font-bold mb-4">Pricing</h3> */}
                                     
-                                    <div className="flex items-center mb-4">
+                                    {/* <div className="flex items-center mb-4">
                                         <p className="text-gray-500 line-through mr-3">₦{skill.pricing.regular}</p>
                                         <p className={`text-2xl font-bold bg-gradient-to-r ${skill.gradient} bg-clip-text text-transparent`}>
                                             ₦{skill.pricing.discount}
                                         </p>
-                                    </div>
+                                    </div> */}
                                     
                                     {daysRemaining > 0 && (
                                         <div className="bg-gray-50 p-3 rounded-lg mb-6">
@@ -158,11 +158,13 @@ const SkillDetail = () => {
                             )}
                             
                             {/* CTA button */}
-                            <button 
-                                className={`w-full py-4 px-6 bg-gradient-to-r ${skill.gradient} text-white rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow`}
-                            >
-                                Reserve Your Seat Now
-                            </button>
+                            <Link href='https://forms.gle/o2tJDefJMJ7gYvWg6' target='blank' className=''>
+                                <button 
+                                    className={`w-full py-4 px-6 bg-gradient-to-r ${skill.gradient} text-white rounded-lg font-bold text-lg shadow-sm hover:shadow-md transition-shadow`}
+                                >
+                                    Reserve Your Seat Now
+                                </button>
+                            </Link>
                             
                             <p className="text-center text-gray-500 text-sm mt-4">
                                 Limited spots available (95% scholarship available)
