@@ -31,7 +31,27 @@ const FAQs = () => {
           id: '4',
           question: "What is the learning format?",
           answer: "We offer a blended learning approach with live online classes, recorded sessions, practical projects, and one-on-one mentoring sessions."
-        }
+        },
+        {
+            id: '5',
+            question: "How does TSI support the students/communities it seeks to help?",
+            answer: "We empower young people with fewer life advantages through the donation of study materials, digital skills training, and impact-driven seminars."
+          },
+          {
+            id: '6',
+            question: "How can I donate books or educational materials to TSI?",
+            answer: "If you would like to donate to any of our causes, please contact the following numbers: 234902865402 or +234822321648"
+          },
+          {
+            id: '7',
+            question: "Can I donate funds to support your work?",
+            answer: "Yes, we accept fund donations. Please contact the following numbers: 234902865402 or +234822321648 to make a donation today."
+          },
+          {
+            id: '8',
+            question: "How can I volunteer with The Skillup Initiative? / Can I partner with TSI?",
+            answer: "If you want to volunteer or partner with TSI, send us an email at theskillupinitiative@gmail.com"
+          }
       ];
 
     return (
