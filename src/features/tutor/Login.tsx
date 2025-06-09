@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginTutor, clearTutorError, checkTutorAuth } from '@/store/slices/tutorSlice';
 import { AppDispatch, RootState } from '@/store';
+import Link from 'next/link';
 
 export default function TutorLogin() {
     const [formData, setFormData] = useState({
@@ -148,9 +149,9 @@ export default function TutorLogin() {
             </button>
 
             <div className="text-center">
-                <a href="/" className="text-sm text-gray-600 hover:text-blue-500 transition duration-200">
-                ← Back to main site
-                </a>
+                <Link href="/" className="text-sm text-gray-600 hover:text-blue-500 transition duration-200">
+                    ← Back to main site
+                </Link>
             </div>
             </form>
         </div>
