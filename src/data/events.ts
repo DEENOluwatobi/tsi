@@ -45,7 +45,7 @@ export const events: Event[] = [
         registration: '',
     },
     {
-        id: 3,
+        id: 4,
         title: "SEO Webinar",
         date: "June, 2025",
         time: "8:00 PM - 9:00 PM",

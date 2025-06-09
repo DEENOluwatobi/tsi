@@ -28,12 +28,12 @@ const Reviews = () => {
 
       <Carousel className="w-[95%] md:w-[85%]">
 
-        <CarouselContent className='w-full md:w-[50%] h-[300px] md:h-[320px]'>
+        <CarouselContent className='w-full md:w-[50%] h-auto'>
           {data.map((item, index) => (
             <CarouselItem key={index} className=''>
               <div className="p-1">
                 <Card className='w-full h-full border-none flex flex-col gap-2'>
-                  <CardContent className="flex w-full h-[200px] items-center justify-center p-6">
+                  <CardContent className="flex w-full min-h-[200px] items-center justify-center p-6">
                     <div className='flex flex-col gap-6'>
                       <ColonIcon className='w-10 md:w-20'/>
                       <p className='text-[.8em] lg:text-[1em]'>
