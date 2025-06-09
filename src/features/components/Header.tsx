@@ -4,15 +4,25 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@/assets/logo/logo.png'
 import { usePathname } from 'next/navigation';
-import { AtSign, Facebook, Instagram, Linkedin, Phone, Menu, X } from 'lucide-react';
+import { AtSign, Facebook, Instagram, Linkedin, Phone, Menu, X, User, ChevronDown, GraduationCap, LayoutDashboard } from 'lucide-react';
 import { Xicon2 } from '@/icons';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '@/store';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store';
 
 const Header = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
-    const { user, isLoading } = useSelector((state: RootState) => state.auth);
+    const { user } = useSelector((state: RootState) => state.auth);
+    const { tutor } = useSelector((state: RootState) => state.tutor);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsMenuOpen(!isOpen);
+    };
+
+    const closeDropdown = () => {
+        setIsMenuOpen(false);
+    };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -26,7 +36,9 @@ const Header = () => {
     ]
 
     return (
-        <div className={`${pathname.startsWith('/dashboard') && 'hidden'} w-full fixed top-0 left-0 z-[99] `}>
+        <div className={`${['/dashboard', '/tutor/dashboard', '/admin/dashboard'].some(path => pathname.startsWith(path)) && 'hidden'} 
+            w-full fixed top-0 left-0 z-[99] `}
+        >
             <div className='w-full bg-black py-1 px-4 hidden md:flex justify-between items-center'>
                 <div className='flex items-center gap-6'>
                     <div className='flex gap-1 text-[.7em] items-center'>
@@ -89,22 +101,77 @@ const Header = () => {
                     ))}
                 </div>
 
-                <div className='hidden md:flex items-center gap-4'>
-                    { user ? (
-                        <Link href='/dashboard'> 
-                            <button className='py-0.5 border-b-[3px] border-black hover:border-red-500 duration-300 ease-in-out transition-all text-black text-[.9em] font-medium'>
-                                <span>Dashboard</span>
-                            </button>
-                        </Link>
-                    ) : (
-                        <Link href='/auth/login'> 
-                            <button className='hover:underline duration-300 ease-in-out transition-all text-black text-[.9em] font-medium px-2 py-2'>
-                                <span>Login</span>
-                            </button>
-                        </Link>
-                    )}
+                <div className='flex items-center gap-4'>
+                    <div className="relative">
+                        <button
+                            onClick={toggleDropdown}
+                            className="flex items-center gap-[2px] px-2 py-2 text-black text-[.9em] font-medium hover:text-red-500 duration-300 ease-in-out transition-all"
+                        >
+                            <User size={20} />
+                            <ChevronDown size={16} className={`transform transition-transform duration-200 ${isMenuOpen ? 'rotate-180' : ''}`} />
+                        </button>
 
-                    <button className='bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
+                        {isMenuOpen && (
+                            <>
+                                <div 
+                                    className="fixed inset-0 z-10" 
+                                    onClick={closeDropdown}
+                                />
+                                
+                                {/* Dropdown menu */}
+                                <div className="p-2 absolute right-0 top-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg w-[250px] z-20">
+                                    <div className="py-1 divide-y-2 divide-gray-300 flex flex-col gap-1">
+                                        {user ? (
+                                            <Link href="/dashboard">
+                                                <button 
+                                                    className="w-full text-left flex items-center gap-2 px-4 py-2 text-[.9em] text-black hover:bg-gray-50 transition-colors duration-200"
+                                                    onClick={closeDropdown}
+                                                >
+                                                    <LayoutDashboard size={18}/>
+                                                    Go to Dashboard
+                                                </button>
+                                            </Link>
+                                        ) : (
+                                            <Link href="/auth/login">
+                                                <button 
+                                                    className="w-full text-left flex items-center gap-2 px-4 py-4 text-[.9em] text-black hover:bg-gray-50 transition-colors duration-200"
+                                                    onClick={closeDropdown}
+                                                >
+                                                    <User size={18}/>
+                                                    Login as Student
+                                                </button>
+                                            </Link>
+                                        )}
+
+                                        { tutor ? (
+                                            <Link href="/tutor/dashboard">
+                                                <button 
+                                                className="w-full text-left flex items-center gap-2 px-4 py-2 text-[.9em] text-black hover:bg-gray-50 transition-colors duration-200"
+                                                onClick={closeDropdown}
+                                                >
+                                                    <GraduationCap size={18}/>
+                                                    Enter Staff Dashboard
+                                                </button>
+                                            </Link>
+                                        ) : (
+                                            <Link href="/tutor/login">
+                                                <button 
+                                                className="w-full text-left flex items-center gap-2 px-4 py-2 text-[.9em] text-black hover:bg-gray-50 transition-colors duration-200"
+                                                onClick={closeDropdown}
+                                                >
+                                                    <GraduationCap size={18}/>
+                                                    Login as Staff
+                                                </button>
+                                            </Link>
+                                        )}
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                    </div>
+
+
+                    <button className='hidden md:flex bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
                         <span>Donate</span>
                     </button>
                 </div>
@@ -154,25 +221,9 @@ const Header = () => {
                         ))}
                     </div>
                     
-                    <div className='flex flex-col items-center gap-3'>
-                        { user ? (
-                            <Link href='/dashboard'> 
-                                <button className='hover:underline duration-300 ease-in-out transition-all text-black text-[.9em] font-medium px-2 py-2'>
-                                    <span>Dashboard</span>
-                                </button>
-                            </Link>
-                        ) : (
-                            <Link href='/auth/login'> 
-                                <button className='hover:underline duration-300 ease-in-out transition-all text-black text-[.9em] font-medium px-2 py-2'>
-                                    <span>Login</span>
-                                </button>
-                            </Link>
-                        )}
-                        
-                        <button className='ml-4 mt-4 w-32 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
-                            <span>Donate</span>
-                        </button>
-                    </div>
+                    <button className='ml-4 mt-4 w-32 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
+                        <span>Donate</span>
+                    </button>
                 </div>
             </div>
         </div>
