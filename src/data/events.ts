@@ -43,5 +43,16 @@ export const events: Event[] = [
         spots: 25,
         link: '',
         registration: '',
+    },
+    {
+        id: 3,
+        title: "SEO Webinar",
+        date: "June, 2025",
+        time: "8:00 PM - 9:00 PM",
+        location: "Virtual",
+        type: "Webinar",
+        spots: 25,
+        link: '',
+        registration: '',
     }
 ];

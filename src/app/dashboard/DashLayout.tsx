@@ -1,33 +1,28 @@
 'use client';
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Particles from "@/components/magicui/particles";
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '@/store';
 import AuthProvider from '@/features/auth/AuthProvider';
 
-export default function RootLayout({
+export default function DashLayout({
     children,
-  }: {
+}: {
     children: React.ReactNode;
-  }) {
+}) {
     const { resolvedTheme } = useTheme();
     const [color, setColor] = useState("#ffffff");
 
     useEffect(() => {
-      setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
+        setColor(resolvedTheme === "dark" ? "#ffffff" : "#000000");
     }, [resolvedTheme]);
 
-  return (
-    <html lang="en">
-      <body
-        className={`w-full h-full overflow-x-hidden`}
-      >
+    return (
         <Provider store={store}>
           <PersistGate loading={
               <div className="min-h-screen bg-white flex items-center justify-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
+                <div className="animate-spin rounded-full h-20 w-20 border-b-2 border-blue-500"></div>
               </div>
             } persistor={persistor}>
               <AuthProvider>
@@ -35,15 +30,5 @@ export default function RootLayout({
               </AuthProvider>
           </PersistGate>
         </Provider>
-        
-        <Particles
-          className="absolute inset-0 z-0 w-full"
-          quantity={100}
-          ease={80}
-          color={color}
-          refresh
-        />
-      </body>
-    </html>
-  )
+    )
 }

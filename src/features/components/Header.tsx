@@ -6,10 +6,13 @@ import Logo from '@/assets/logo/logo.png'
 import { usePathname } from 'next/navigation';
 import { AtSign, Facebook, Instagram, Linkedin, Phone, Menu, X } from 'lucide-react';
 import { Xicon2 } from '@/icons';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '@/store';
 
 const Header = () => {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const { user, isLoading } = useSelector((state: RootState) => state.auth);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -23,7 +26,7 @@ const Header = () => {
     ]
 
     return (
-        <div className='w-full fixed top-0 left-0 z-50 '>
+        <div className={`${pathname.startsWith('/dashboard') && 'hidden'} w-full fixed top-0 left-0 z-50 `}>
             <div className='w-full bg-black py-1 px-4 hidden md:flex justify-between items-center'>
                 <div className='flex items-center gap-6'>
                     <div className='flex gap-1 text-[.7em] items-center'>
@@ -86,7 +89,21 @@ const Header = () => {
                     ))}
                 </div>
 
-                <div className='hidden md:flex'>
+                <div className='hidden md:flex items-center gap-4'>
+                    { user ? (
+                        <Link href='/dashboard'> 
+                            <button className='py-0.5 border-b-[3px] border-black hover:border-red-500 duration-300 ease-in-out transition-all text-black text-[.9em] font-medium'>
+                                <span>Dashboard</span>
+                            </button>
+                        </Link>
+                    ) : (
+                        <Link href='/auth/login'> 
+                            <button className='hover:underline duration-300 ease-in-out transition-all text-black text-[.9em] font-medium px-2 py-2'>
+                                <span>Login</span>
+                            </button>
+                        </Link>
+                    )}
+
                     <button className='bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
                         <span>Donate</span>
                     </button>
@@ -136,10 +153,26 @@ const Header = () => {
                             </Link>
                         ))}
                     </div>
-
-                    <button className='ml-4 mt-4 w-32 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
-                        <span>Donate</span>
-                    </button>
+                    
+                    <div className='flex flex-col items-center gap-3'>
+                        { user ? (
+                            <Link href='/dashboard'> 
+                                <button className='hover:underline duration-300 ease-in-out transition-all text-black text-[.9em] font-medium px-2 py-2'>
+                                    <span>Dashboard</span>
+                                </button>
+                            </Link>
+                        ) : (
+                            <Link href='/auth/login'> 
+                                <button className='hover:underline duration-300 ease-in-out transition-all text-black text-[.9em] font-medium px-2 py-2'>
+                                    <span>Login</span>
+                                </button>
+                            </Link>
+                        )}
+                        
+                        <button className='ml-4 mt-4 w-32 bg-gradient-to-br from-blue-500 to-red-500 shadow-lg hover:shadow-red-300 duration-300 ease-in-out transition-all text-white text-[.9em] font-medium px-8 py-2 rounded-full'>
+                            <span>Donate</span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

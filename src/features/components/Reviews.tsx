@@ -8,23 +8,13 @@ const Reviews = () => {
 
   const data = [
     { 
-        name: 'Aisha Bello', 
-        review: 'SkillUp Initiative changed my life! I learned valuable tech skills that helped me secure a job in web development. The training was hands-on and easy to follow.', 
+        name: 'Boluwatife Sowunmi', 
+        review: 'During the Skill up program, I gained a lot of thing. But let me just mention some. First and foremost, I was thought how to interact with others,  I got to learn how to teach people and how to stand in front of my fellow student and talk. Furthermore, I got the chance to learn the concept of designing, in term of colour choosing, in term of font choosing and in term of designing. The summarize my experience with the TSI, I gain a lot, both life education and work education. And I am very happy I joined the TSI', 
         stars: 5 
     },
     { 
-        name: 'Samuel Adeyemi', 
-        review: 'I’m so grateful for SkillUp Initiative. They not only taught me programming but also helped me build confidence in my abilities. Highly recommend it to anyone eager to learn!', 
-        stars: 5 
-    },
-    { 
-        name: 'Mariam Yusuf', 
-        review: 'The mentorship and support I received from SkillUp Initiative were exceptional. I now have the skills to create apps and work on real-world projects.', 
-        stars: 4 
-    },
-    { 
-        name: 'Chinedu Okafor', 
-        review: 'SkillUp Initiative is the best thing that ever happened to me. Their tech programs are thorough, and the trainers are always ready to help. I’ve already started freelancing!', 
+        name: 'Quadry Shakeerah', 
+        review: 'I want to talk about how TSI training made a big impact in my life. I was a young girl who does not know how to operate a Laptop and looking for ways in which I can learn it. Fortunately, I found out about TSI training and I attended the training. During the training I learnt alot of things. I was taught how to use Microsoft word and how to design on Canva Now, I can actually do anything I want on Microsoft word and Canva. This was achieved all thanks to TSI training', 
         stars: 5 
     },
   ];

@@ -13,7 +13,7 @@ body{
 
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
   height: 5px;
 }
 @media (max-width: 667px) {
@@ -31,7 +31,7 @@ body{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  width: 6px;
+  width: 8px;
   border-radius: 50px;
   background: #ff3700;
 }

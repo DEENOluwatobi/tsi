@@ -2,10 +2,13 @@
 import React from 'react';
 import logo from '@/assets/logo/logo.png';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
+  const pathname = usePathname();
+
   return (
-    <div className='w-full flex flex-col gap-10 bg-[#060019] text-white py-5 md:py-10'>
+    <div className={`${pathname.startsWith('/dashboard') && 'hidden'} w-full flex flex-col gap-10 bg-[#060019] text-white py-5 md:py-10`}>
       <div className='w-full md:w-[90%] mx-auto py-2 gap-5 flex flex-col justify-center items-center'>
           <div className=''>
             <Image src={logo} alt='logo' className='h-16 w-auto'/>

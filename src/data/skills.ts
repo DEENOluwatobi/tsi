@@ -103,7 +103,7 @@ export const skillsData: Skill[] = [
         discount: 900,
         discountEnds: new Date("2025-06-10")
         },
-        startDate: "June 15, 2025"
+        startDate: "August 15, 2025"
     },
     {
         id: 3,
@@ -143,7 +143,7 @@ export const skillsData: Skill[] = [
         discount: 900,
         discountEnds: new Date("2025-06-10")
         },
-        startDate: "June 22, 2025"
+        startDate: "August 22, 2025"
     },
     {
         id: 4,
@@ -183,7 +183,7 @@ export const skillsData: Skill[] = [
         discount: 800,
         discountEnds: new Date("2025-06-10")
         },
-        startDate: "June 29, 2025"
+        startDate: "August 29, 2025"
     },
     {
         id: 5,
@@ -194,28 +194,33 @@ export const skillsData: Skill[] = [
         gradient: "from-red-500 to-blue-500",
         longDescription: "Our SEO track equips you with the skills to improve website visibility and drive organic traffic. Learn technical SEO, keyword research, content optimization, and analytics to help businesses achieve their online marketing goals.",
         benefits: [
-        "Master both technical and content SEO strategies.",
-        "Learn to conduct comprehensive site audits and implement improvements.",
-        "Develop skills in keyword research and competitive analysis.",
-        "Understand how to measure SEO success and report on results.",
-        "Stay updated with the latest search engine algorithm changes."
+        "Master SEO from theory to practical application - get realistic SEO-focused results with your own hands and understand what users do on websites through Google Analytics.",
+        "Learn comprehensive keyword research using both free and paid methods to discover what people are really searching for.",
+        "Create SEO-optimized content that people actually want to read and search engines love to rank.",
+        "Set up and rank a website from scratch - from buying a domain to generating consistent traffic.",
+        "Master internal and external linking strategies that boost your website's authority and rankings.",
+        "Grow websites safely year over year without receiving manual actions or search engine penalties.",
+        "Stand out on search engines like Google using Schema markups and rich snippets.",
+        "Dominate local search results and optimize Google My Business for maximum visibility.",
+        "Reach international audiences with proven international SEO strategies and techniques.",
+        "Future-proof your skills by learning how to get traffic from AI tools like ChatGPT and other LLMs."
         ],
         modules: [
         {
-            title: "SEO Fundamentals",
-            description: "Understand how search engines work and ranking factors."
+            title: "SEO Fundamentals & Analytics",
+            description: "Understand how search engines work, ranking factors, and user behavior analysis through Google Analytics."
         },
         {
-            title: "Technical SEO",
-            description: "Learn site architecture, crawlability, and performance optimization."
+            title: "Keyword Research & Content Strategy",
+            description: "Master both free and paid keyword research tools to create content that ranks and converts."
         },
         {
-            title: "Content & On-Page SEO",
-            description: "Master keyword research and content optimization techniques."
+            title: "Technical SEO & Website Setup",
+            description: "Learn site architecture, domain setup, crawlability, and performance optimization from ground up."
         },
         {
-            title: "Link Building & Off-Page SEO",
-            description: "Develop strategies for building high-quality backlinks."
+            title: "Link Building & Advanced SEO",
+            description: "Develop safe link building strategies, Schema markup implementation, local SEO, international SEO, and AI-era optimization."
         }
         ],
         pricing: {
@@ -223,7 +228,7 @@ export const skillsData: Skill[] = [
         discount: 700,
         discountEnds: new Date("2025-06-10")
         },
-        startDate: "July 6, 2025"
+        startDate: "August 6, 2025"
     },
     {
         id: 6,
@@ -234,28 +239,33 @@ export const skillsData: Skill[] = [
         gradient: "from-blue-500 to-red-500",
         longDescription: "Our Data Analysis track teaches you to extract meaningful insights from complex datasets. Learn statistical analysis, data visualization, and how to communicate findings to drive business decisions.",
         benefits: [
-        "Develop proficiency in data analysis tools like Python, R, and SQL.",
-        "Learn to clean, process, and transform raw data into useful formats.",
-        "Master statistical methods and data visualization techniques.",
-        "Build predictive models and implement machine learning algorithms.",
-        "Create compelling data stories that drive decision-making."
+        "Learn high-demand tools like Excel, Python, SQL & Power BI—skills that qualify you for well-paid roles in tech, finance, health, energy & more.",
+        "Open doors to remote jobs & freelance work. Work from anywhere and earn on your own terms by offering services like dashboard creation, data cleaning & reporting.",
+        "Become a confident problem-solver by learning how to clean, analyse & visualise data, developing the mindset to approach challenges clearly and effectively.",
+        "Transform your personal finances by using data skills to track spending, build budgets, and forecast savings or investments based on real data.",
+        "Learn to automate repetitive tasks with Python, Excel and Power BI, saving hours each week for higher-value work and increased earning potential.",
+        "Use data for smarter business decisions—from pricing and marketing to customer behaviour and sales tracking for your business or side hustle.",
+        "Build a strong professional portfolio with practical projects that prove to employers or clients you can turn data into actionable insights.",
+        "Become a confident decision-maker who can communicate insights and tell meaningful stories with data in any professional setting.",
+        "Future-proof your career with skills relevant in every industry, allowing you to move across sectors and adapt to change.",
+        "Gain the ability to solve real problems with data—from improving your community to growing your income and creating meaningful change."
         ],
         modules: [
         {
-            title: "Data Fundamentals",
-            description: "Learn data types, structures, and basic statistical concepts."
+            title: "Data Fundamentals & Excel Mastery",
+            description: "Learn data types, structures, basic statistical concepts, and advanced Excel techniques for data analysis."
         },
         {
-            title: "Data Processing & Cleaning",
-            description: "Master techniques for preparing data for analysis."
+            title: "SQL & Database Management",
+            description: "Master SQL for data extraction, manipulation, and database management across different systems."
         },
         {
-            title: "Statistical Analysis",
-            description: "Apply statistical methods to extract insights from data."
+            title: "Python for Data Analysis",
+            description: "Learn Python programming for data cleaning, processing, statistical analysis, and automation of repetitive tasks."
         },
         {
-            title: "Data Visualization",
-            description: "Create compelling visualizations that communicate insights clearly."
+            title: "Data Visualization & Business Intelligence",
+            description: "Create compelling visualizations and interactive dashboards using Power BI and other visualization tools to communicate insights effectively."
         }
         ],
         pricing: {
@@ -263,6 +273,6 @@ export const skillsData: Skill[] = [
         discount: 900,
         discountEnds: new Date("2025-06-10")
         },
-        startDate: "July 13, 2025"
+        startDate: "August 13, 2025"
     }
 ];
