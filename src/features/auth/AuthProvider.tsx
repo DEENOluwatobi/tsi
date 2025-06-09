@@ -26,15 +26,16 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             } else {
                 // Handle case where user exists in auth but not in Firestore
                 const basicUserData: UserData = {
-                uid: user.uid,
-                email: user.email || '',
-                displayName: user.displayName || '',
-                firstName: user.displayName?.split(' ')[0] || '',
-                lastName: user.displayName?.split(' ').slice(1).join(' ') || '',
-                phone: '',
-                techSkill: '',
-                state: '',
-                country: 'Nigeria'
+                    uid: user.uid,
+                    email: user.email || '',
+                    displayName: user.displayName || '',
+                    firstName: user.displayName?.split(' ')[0] || '',
+                    lastName: user.displayName?.split(' ').slice(1).join(' ') || '',
+                    phone: '',
+                    techSkill: '',
+                    state: '',
+                    country: 'Nigeria',
+                    bio: ''
                 };
                 dispatch(setUser(basicUserData));
             }
