@@ -26,7 +26,7 @@ const Header = () => {
     ]
 
     return (
-        <div className={`${pathname.startsWith('/dashboard') && 'hidden'} w-full fixed top-0 left-0 z-50 `}>
+        <div className={`${pathname.startsWith('/dashboard') && 'hidden'} w-full fixed top-0 left-0 z-[99] `}>
             <div className='w-full bg-black py-1 px-4 hidden md:flex justify-between items-center'>
                 <div className='flex items-center gap-6'>
                     <div className='flex gap-1 text-[.7em] items-center'>
@@ -57,7 +57,7 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className='w-full h-20 px-2 md:px-4 py-2 flex justify-between items-center bg-white/50 backdrop-blur-[5px] shadow-sm'>
+            <div className='w-full h-20 px-2 md:px-4 py-2 flex justify-between items-center bg-white/70 backdrop-blur-[30px] shadow-sm'>
                 <Link href="/">
                     <div className='w-auto h-[50px]'>
                         <Image
