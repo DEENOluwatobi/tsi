@@ -3,9 +3,10 @@ import React from 'react';
 import logo from '@/assets/logo/logo.png';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Footer = () => {
+  const router = useRouter();
   const pathname = usePathname();
 
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
             <Image src={logo} alt='logo' className='h-16 w-auto'/>
           </div>
           <p className='text-center text-[.8em] md:text-[.9em]'>
-            Copyright &copy; 2025 <span className='text-red-500'><Link href='/admin/login'>The Skillup Initiative</Link></span>, All rights reserved
+            Copyright &copy; 2025 <span onClick={()=>router.push('/admin/login')} className='text-red-500'>The Skillup Initiative</span>, All rights reserved
           </p>
       </div>
 
