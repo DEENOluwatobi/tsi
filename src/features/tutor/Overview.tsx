@@ -121,7 +121,7 @@ export default function OverviewPage({ tutor }: OverviewPageProps): JSX.Element 
       <div className="bg-gradient-to-r from-red-500 to-blue-500 rounded-lg p-6 text-white">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="text-2xl font-bold mb-2">Good morning, {tutor.firstname}!</h2>
+            <h2 className="text-2xl font-bold mb-2">Hello, {tutor.firstname}!</h2>
             <p className="text-red-100">Here's what's happening with your courses today.</p>
           </div>
           <div className="hidden md:block">

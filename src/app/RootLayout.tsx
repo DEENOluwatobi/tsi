@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '@/store';
 import AuthProvider from '@/features/auth/AuthProvider';
+import LoadingPage from "@/features/components/LoadingPage";
 
 export default function RootLayout({
     children,
@@ -25,11 +26,7 @@ export default function RootLayout({
         className={`w-full h-full overflow-x-hidden`}
       >
         <Provider store={store}>
-          <PersistGate loading={
-              <div className="min-h-screen bg-white flex items-center justify-center">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-500"></div>
-              </div>
-            } persistor={persistor}>
+          <PersistGate loading={<LoadingPage/>} persistor={persistor}>
               <AuthProvider>
                 {children}
               </AuthProvider>

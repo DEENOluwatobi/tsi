@@ -1,7 +1,10 @@
 'use client';
-
-import { JSX, useState } from 'react';
+import React, { JSX, useState } from 'react';
 import { Bell, LogOut, Menu, Search, User } from 'lucide-react';
+import { logoutTutor } from '@/store/slices/tutorSlice';
+import { useRouter } from 'next/navigation';
+import { AppDispatch } from '@/store';
+import { useDispatch } from 'react-redux';
 
 interface Tutor {
   firstname: string;
@@ -18,12 +21,19 @@ interface HeaderProps {
 }
 
 export default function Header({ tutor, onLogout, sidebarMinimized, toggleSidebar }: HeaderProps): JSX.Element {
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
   const [showLogoutModal, setShowLogoutModal] = useState<boolean>(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState<boolean>(false);
 
   const handleLogout = (): void => {
     setShowLogoutModal(false);
     onLogout();
+  };
+
+  const isLogout = () => {
+    dispatch(logoutTutor());
+    router.push('/tutor/login');
   };
 
   return (
@@ -107,10 +117,7 @@ export default function Header({ tutor, onLogout, sidebarMinimized, toggleSideba
                     </button>
                     
                     <button 
-                      onClick={() => {
-                        setShowProfileDropdown(false);
-                        setShowLogoutModal(true);
-                      }}
+                      onClick={isLogout}
                       className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center space-x-2"
                     >
                       <LogOut className="w-4 h-4" />
@@ -150,7 +157,7 @@ export default function Header({ tutor, onLogout, sidebarMinimized, toggleSideba
                 Cancel
               </button>
               <button
-                onClick={handleLogout}
+                onClick={isLogout}
                 className="flex-1 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200"
               >
                 Logout
@@ -170,3 +177,4 @@ export default function Header({ tutor, onLogout, sidebarMinimized, toggleSideba
     </>
   );
 }
+

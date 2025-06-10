@@ -41,13 +41,13 @@ const Header = () => {
         >
             <div className='w-full bg-black py-1 px-4 hidden md:flex justify-between items-center'>
                 <div className='flex items-center gap-6'>
-                    <div className='flex gap-1 text-[.7em] items-center'>
+                    <div className='flex gap-1 text-[.8em] items-center'>
                         <Phone className={`text-white w-5 h-5`}/>
-                        <span className={`text-white`}>(+234)8022321648, (+234)9028654402</span>
+                        <span className={`text-white`}>(+234)8022321648,  (+234)9028654402</span>
                     </div>
-                    <div className='flex gap-1 text-[.7em] items-center'>
+                    <div className='flex gap-1 text-[.8em] items-center'>
                         <AtSign className={`text-white w-5 h-5`}/>
-                        <span className={`text-white`}>theskillupinitiative@gmail.com</span>
+                        <span className={`text-white`}>theskilluptsi@gmail.com</span>
                     </div>
                 </div>
 
@@ -134,7 +134,7 @@ const Header = () => {
                                         ) : (
                                             <Link href="/auth/login">
                                                 <button 
-                                                    className="w-full text-left flex items-center gap-2 px-4 py-4 text-[.9em] text-black hover:bg-gray-50 transition-colors duration-200"
+                                                    className="w-full text-left flex items-center gap-2 px-4 py-2 text-[.9em] text-black hover:bg-gray-50 transition-colors duration-200"
                                                     onClick={closeDropdown}
                                                 >
                                                     <User size={18}/>

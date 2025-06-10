@@ -1,10 +1,11 @@
 'use client';
-
+import React, { JSX } from 'react';
 import { 
   BarChart3, 
   BookOpen, 
   FileText, 
   Home, 
+  LogOut, 
   Menu, 
   Settings, 
   TrendingUp, 
@@ -12,7 +13,10 @@ import {
   Users, 
   X 
 } from 'lucide-react';
-import { JSX } from 'react';
+import { checkTutorAuth, logoutTutor } from '@/store/slices/tutorSlice';
+import { AppDispatch, RootState } from '@/store';
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
 
 type ActiveTab = 'overview' | 'students' | 'courses' | 'assignments' | 'analytics' | 'profile' | 'settings';
 
@@ -40,9 +44,16 @@ const menuItems: MenuItem[] = [
 ];
 
 export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSidebar }: SidebarProps): JSX.Element {
+  const dispatch = useDispatch<AppDispatch>();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    dispatch(logoutTutor());
+    router.push('/tutor/login');
+  };
+
   return (
     <>
-      {/* Mobile Overlay */}
       {!isMinimized && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
@@ -50,14 +61,12 @@ export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSi
         />
       )}
 
-      {/* Sidebar */}
       <div className={`fixed left-0 top-0 h-full bg-white border-r border-gray-200 z-30 transition-all duration-300 ${
         isMinimized ? 'w-16' : 'w-64'
       } ${isMinimized ? 'translate-x-0' : 'translate-x-0'} lg:translate-x-0 ${
         isMinimized ? '' : 'lg:w-64'
       }`}>
         
-        {/* Logo Section */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           {!isMinimized && (
             <div className="flex items-center space-x-2">
@@ -72,12 +81,11 @@ export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSi
           
           {isMinimized && (
             <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-blue-500 rounded-lg flex items-center justify-center mx-auto">
-              <span className="text-white font-bold text-sm">T</span>
+              <span className="text-white font-bold text-sm">TSI</span>
             </div>
           )}
         </div>
 
-        {/* Toggle Button */}
         <div className="p-4">
           <button
             onClick={toggleSidebar}
@@ -94,8 +102,7 @@ export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSi
           </button>
         </div>
 
-        {/* Navigation Menu */}
-        <nav className="px-4 pb-4">
+        <nav className="px-2 pb-4">
           <ul className="space-y-2">
             {menuItems.map((item) => {
               const IconComponent = item.icon;
@@ -105,18 +112,20 @@ export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSi
                 <li key={item.id}>
                   <button
                     onClick={() => setActiveTab(item.id)}
-                    className={`w-full flex items-center space-x-3 px-3 py-3 rounded-lg text-left transition-all duration-200 group ${
+                    className={`${isMinimized ? '' : ''} w-full flex items-center space-x-3 px-3 py-3 rounded-lg text-left transition-all duration-200 group ${
                       isActive
-                        ? 'bg-gradient-to-r from-red-500 to-blue-500 text-white shadow-lg'
+                        ? 'bg-gradient-to-r from-gray-800 to-gray-600 text-white shadow-lg'
                         : 'text-gray-600 hover:bg-gray-100 hover:text-black'
                     }`}
                     title={isMinimized ? item.label : ''}
                   >
-                    <IconComponent className={`w-5 h-5 ${isMinimized ? 'mx-auto' : ''} ${
-                      isActive ? 'text-white' : 'text-gray-600 group-hover:text-black'
-                    }`} />
+                    <div className='flex items-center justify-center'>
+                      <IconComponent className={`w-5 h-5 ${isMinimized ? 'mx-auto' : ''} ${
+                        isActive ? 'text-white' : 'text-gray-600 group-hover:text-black'
+                      }`} />
+                    </div>
                     {!isMinimized && (
-                      <span className="font-medium">{item.label}</span>
+                      <span className="font-medium text-[.9em]">{item.label}</span>
                     )}
                   </button>
                 </li>
@@ -125,8 +134,7 @@ export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSi
           </ul>
         </nav>
 
-        {/* Bottom Section */}
-        {!isMinimized && (
+        {/* {!isMinimized && (
           <div className="absolute bottom-4 left-4 right-4">
             <div className="bg-gradient-to-r from-red-50 to-blue-50 border border-gray-200 rounded-lg p-4">
               <div className="text-center">
@@ -141,7 +149,20 @@ export default function Sidebar({ activeTab, setActiveTab, isMinimized, toggleSi
               </div>
             </div>
           </div>
-        )}
+        )} */}
+
+        {!isMinimized && (
+          <div className="absolute bottom-4 left-4 right-4">
+            <button
+            onClick={handleLogout}
+            className="w-full flex items-center gap-2 text-[.9em] px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-200"
+            >
+              <LogOut size={20}/>
+              Logout
+            </button>
+          </div>
+        )} 
+
       </div>
     </>
   );
