@@ -35,7 +35,7 @@ interface PageProps {
 async function getFormData(slug: string): Promise<FormData | null> {
     try {
         // First, try to get the form by document ID
-        let formDoc = await getDoc(doc(db, 'forms', slug));
+        const formDoc = await getDoc(doc(db, 'forms', slug));
         
         if (formDoc.exists()) {
             const data = { id: formDoc.id, ...formDoc.data() } as FormData;
