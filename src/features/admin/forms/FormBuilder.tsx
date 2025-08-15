@@ -329,3 +329,7 @@ const FormBuilder = ({ onClose, onSave, editFormData = null }: {
 }
 
 export default FormBuilder 
+
+
+// Console Error
+// FirebaseError: Function addDoc() called with invalid data. Unsupported field value: undefined (found in document forms/6AsF6sI8VtGGE5O1dwOm)

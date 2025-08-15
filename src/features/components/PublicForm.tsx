@@ -51,7 +51,7 @@ const PublicFormDisplay = ({ formId }: { formId: string }) => {
     const loadForm = async () => {
         try {
         // Try to find by ID first
-        let formDoc = await getDoc(doc(db, 'forms', formId));
+        const formDoc = await getDoc(doc(db, 'forms', formId));
         
         if (!formDoc.exists()) {
             // If not found by ID, try to find by slug
