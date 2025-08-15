@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import logo from '@/assets/logo/logo.png';
+import logo from '@/assets/logo/black-logo.png';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useRouter } from 'next/navigation';
@@ -20,7 +20,7 @@ const Footer = () => {
           </p>
       </div>
 
-      <p className='barlow w-full text-[.7em] md:text-[.8em] py-2 text-center border-t border-gray-500'>
+      <p className='barlow font-semibold w-full text-[.7em] md:text-[.8em] py-2 text-center border-t border-gray-500'>
         Designed by <span className='text-red-500 font-medium cursor-pointer'> DEENOluwatobi</span>
       </p>
     </div>
