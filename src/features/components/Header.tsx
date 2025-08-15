@@ -71,7 +71,7 @@ const Header = () => {
 
             <div className='w-full h-20 px-2 md:px-4 py-2 flex justify-between items-center bg-white/70 backdrop-blur-[30px] shadow-sm'>
                 <Link href="/">
-                    <div className='w-auto h-[50px]'>
+                    <div className='w-auto h-[40px]'>
                         <Image
                             src={Logo}
                             alt="logo"

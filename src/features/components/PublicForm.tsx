@@ -165,13 +165,13 @@ const PublicFormDisplay = ({ formId }: { formId: string }) => {
         
         Object.entries(responses).forEach(([fieldId, value]) => {
             if (value instanceof File) {
-            processedResponses[fieldId] = {
-                fileName: value.name,
-                fileSize: value.size,
-                fileType: value.type
-            };
+                processedResponses[fieldId] = {
+                    fileName: value.name,
+                    fileSize: value.size,
+                    fileType: value.type
+                };
             } else {
-            processedResponses[fieldId] = value;
+                processedResponses[fieldId] = value;
             }
         });
 
@@ -191,10 +191,10 @@ const PublicFormDisplay = ({ formId }: { formId: string }) => {
 
         setSubmitted(true);
         } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('There was an error submitting your response. Please try again.');
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting your response. Please try again.');
         } finally {
-        setSubmitting(false);
+            setSubmitting(false);
         }
     };
 
@@ -202,119 +202,119 @@ const PublicFormDisplay = ({ formId }: { formId: string }) => {
         const hasError = errors[field.id];
         const fieldValue = responses[field.id];
 
-        const inputClassName = `w-full p-4 bg-white/5 backdrop-blur-sm border ${
-        hasError ? 'border-red-500' : 'border-white/20'
-        } rounded-xl text-white placeholder-white/60 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 focus:outline-none transition-all duration-200`;
+        const inputClassName = `w-full p-4 bg-gray-50 border ${
+        hasError ? 'border-red-500' : 'border-gray-300'
+        } rounded-xl text-gray-900 placeholder-gray-500 focus:border-blue-400 focus:ring-2 focus:ring-blue-400/50 focus:outline-none transition-all duration-200`;
 
         switch (field.type) {
         case 'short_text':
             return (
-            <div>
-                <input
-                type="text"
-                value={(fieldValue as string) || ''}
-                onChange={(e) => handleInputChange(field.id, e.target.value)}
-                className={inputClassName}
-                placeholder="Enter your answer..."
-                />
-            </div>
+                <div>
+                    <input
+                        type="text"
+                        value={(fieldValue as string) || ''}
+                        onChange={(e) => handleInputChange(field.id, e.target.value)}
+                        className={inputClassName}
+                        placeholder="Enter your answer..."
+                    />
+                </div>
             );
 
         case 'long_text':
             return (
-            <div>
-                <textarea
-                value={(fieldValue as string) || ''}
-                onChange={(e) => handleInputChange(field.id, e.target.value)}
-                className={`${inputClassName} resize-none`}
-                rows={4}
-                placeholder="Enter your answer..."
-                />
-            </div>
+                <div>
+                    <textarea
+                        value={(fieldValue as string) || ''}
+                        onChange={(e) => handleInputChange(field.id, e.target.value)}
+                        className={`${inputClassName} resize-none`}
+                        rows={4}
+                        placeholder="Enter your answer..."
+                    />
+                </div>
             );
 
         case 'number':
             return (
-            <div>
-                <input
-                type="number"
-                value={(fieldValue as string) || ''}
-                onChange={(e) => handleInputChange(field.id, e.target.value)}
-                className={inputClassName}
-                placeholder="Enter a number..."
-                />
-            </div>
+                <div>
+                    <input
+                        type="number"
+                        value={(fieldValue as string) || ''}
+                        onChange={(e) => handleInputChange(field.id, e.target.value)}
+                        className={inputClassName}
+                        placeholder="Enter a number..."
+                    />
+                </div>
             );
 
         case 'radio':
             return (
-            <div className="space-y-3">
-                {field.options?.map((option, index) => (
-                <label key={index} className="flex items-center space-x-3 cursor-pointer group">
-                    <input
-                    type="radio"
-                    name={field.id}
-                    value={option}
-                    checked={(fieldValue as string) === option}
-                    onChange={(e) => handleInputChange(field.id, e.target.value)}
-                    className="w-5 h-5 text-blue-500 border-white/20 focus:ring-blue-400 focus:ring-2"
-                    />
-                    <span className="text-white group-hover:text-blue-300 transition-colors">
-                    {option}
-                    </span>
-                </label>
-                ))}
-            </div>
+                <div className="space-y-3">
+                    {field.options?.map((option, index) => (
+                        <label key={index} className="flex items-center space-x-3 cursor-pointer group">
+                            <input
+                                type="radio"
+                                name={field.id}
+                                value={option}
+                                checked={(fieldValue as string) === option}
+                                onChange={(e) => handleInputChange(field.id, e.target.value)}
+                                className="w-5 h-5 text-blue-500 border-gray-300 focus:ring-blue-400 focus:ring-2"
+                            />
+                            <span className="text-gray-800 group-hover:text-blue-600 transition-colors">
+                                {option}
+                            </span>
+                        </label>
+                    ))}
+                </div>
             );
 
         case 'checkbox':
             return (
-            <div className="space-y-3">
-                {field.options?.map((option, index) => (
-                <label key={index} className="flex items-center space-x-3 cursor-pointer group">
-                    <input
-                    type="checkbox"
-                    checked={(fieldValue as string[])?.includes(option) || false}
-                    onChange={(e) => handleCheckboxChange(field.id, option, e.target.checked)}
-                    className="w-5 h-5 text-blue-500 border-white/20 rounded focus:ring-blue-400 focus:ring-2"
-                    />
-                    <span className="text-white group-hover:text-blue-300 transition-colors">
-                    {option}
-                    </span>
-                </label>
-                ))}
-            </div>
+                <div className="space-y-3">
+                    {field.options?.map((option, index) => (
+                        <label key={index} className="flex items-center space-x-3 cursor-pointer group">
+                            <input
+                                type="checkbox"
+                                checked={(fieldValue as string[])?.includes(option) || false}
+                                onChange={(e) => handleCheckboxChange(field.id, option, e.target.checked)}
+                                className="w-5 h-5 text-blue-500 border-gray-300 rounded focus:ring-blue-400 focus:ring-2"
+                            />
+                            <span className="text-gray-800 group-hover:text-blue-600 transition-colors">
+                                {option}
+                            </span>
+                        </label>
+                    ))}
+                </div>
             );
 
         case 'file_upload':
             return (
-            <div>
-                <div className="relative">
-                <input
-                    type="file"
-                    onChange={(e) => handleFileUpload(field.id, e.target.files?.[0] || null)}
-                    className="hidden"
-                    id={`file-${field.id}`}
-                    accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.doc,.docx,.txt"
-                />
-                <label
-                    htmlFor={`file-${field.id}`}
-                    className={`flex items-center justify-center p-6 bg-white/5 backdrop-blur-sm border-2 border-dashed ${
-                    hasError ? 'border-red-500' : 'border-white/20'
-                    } rounded-xl cursor-pointer hover:border-blue-400 hover:bg-white/10 transition-all duration-200`}
-                >
-                    <div className="text-center">
-                    <Upload className="mx-auto text-white/60 mb-2" size={32} />
-                    <div className="text-white/80 font-medium">
-                        {fieldValue instanceof File ? fieldValue.name : 'Choose a file to upload'}
+                <div>
+                    <div className="relative">
+                        <input
+                            type="file"
+                            onChange={(e) => handleFileUpload(field.id, e.target.files?.[0] || null)}
+                            className="hidden"
+                            id={`file-${field.id}`}
+                            accept=".jpg,.jpeg,.png,.gif,.webp,.pdf,.doc,.docx,.txt"
+                        />
+                        <label
+                            htmlFor={`file-${field.id}`}
+                            className={`flex items-center justify-center p-6 bg-gray-50 border-2 border-dashed ${
+                            hasError ? 'border-red-500' : 'border-gray-300'
+                            } rounded-xl cursor-pointer hover:border-blue-400 hover:bg-gray-100 transition-all duration-200`}
+                        >
+                            <div className="text-center">
+                                <Upload className="mx-auto text-gray-400 mb-2" size={32} />
+                                <div className="text-gray-700 font-medium">
+                                    {fieldValue instanceof File ? fieldValue.name : 'Choose a file to upload'}
+                                </div>
+                                <div className="text-gray-500 text-sm mt-1">
+                                    Max 5MB • Images, PDF, DOC, TXT
+                                </div>
+                            </div>
+                        </label>
                     </div>
-                    <div className="text-white/40 text-sm mt-1">
-                        Max 5MB • Images, PDF, DOC, TXT
-                    </div>
-                    </div>
-                </label>
                 </div>
-            </div>
             );
 
         default:
@@ -324,141 +324,141 @@ const PublicFormDisplay = ({ formId }: { formId: string }) => {
 
     if (loading) {
         return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-            <div className="text-center">
-            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
-            <p className="text-white/60">Loading form...</p>
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-400 mx-auto mb-4"></div>
+                    <p className="text-gray-600">Loading form...</p>
+                </div>
             </div>
-        </div>
         );
     }
 
     if (!formData) {
         return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-            <div className="text-center max-w-md mx-auto p-8">
-            <AlertCircle className="mx-auto text-red-400 mb-4" size={64} />
-            <h1 className="text-2xl font-bold text-white mb-2">Form Not Found</h1>
-            <p className="text-white/60 mb-6">
-                This form doesn't exist or has been deactivated by the administrator.
-            </p>
-            <div className="text-white/40 text-sm">
-                Please check the URL and try again, or contact the form creator.
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center max-w-md mx-auto p-8">
+                    <AlertCircle className="mx-auto text-red-400 mb-4" size={64} />
+                    <h1 className="text-2xl font-bold text-gray-900 mb-2">Form Not Found</h1>
+                    <p className="text-gray-600 mb-6">
+                        This form doesn't exist or has been deactivated by the administrator.
+                    </p>
+                    <div className="text-gray-500 text-sm">
+                        Please check the URL and try again, or contact the form creator.
+                    </div>
+                </div>
             </div>
-            </div>
-        </div>
         );
     }
 
     if (submitted) {
         return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
-            <div className="text-center max-w-md mx-auto p-8">
-            <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Check className="text-white" size={40} />
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center max-w-md mx-auto p-8">
+                    <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Check className="text-white" size={40} />
+                    </div>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-4">Thank You!</h1>
+                    <p className="text-gray-700 text-lg mb-6">
+                        Your response has been submitted successfully.
+                    </p>
+                    <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                        <p className="text-gray-600 text-sm">
+                            Your submission was recorded at {new Date().toLocaleString()}
+                        </p>
+                    </div>
+                </div>
             </div>
-            <h1 className="text-3xl font-bold text-white mb-4">Thank You!</h1>
-            <p className="text-white/80 text-lg mb-6">
-                Your response has been submitted successfully.
-            </p>
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
-                <p className="text-white/60 text-sm">
-                Your submission was recorded at {new Date().toLocaleString()}
-                </p>
-            </div>
-            </div>
-        </div>
         );
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="relative z-10 max-w-3xl mx-auto px-4 py-12">
-            {/* Form Header */}
-            <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl mb-6">
-                <FileText className="text-white" size={32} />
-            </div>
-            <h1 className="text-4xl font-bold text-white mb-4">{formData.title}</h1>
-            {formData.description && (
-                <p className="text-white/70 text-lg max-w-2xl mx-auto">
-                {formData.description}
-                </p>
-            )}
-            <div className="flex items-center justify-center space-x-4 mt-6 text-white/40 text-sm">
-                <div className="flex items-center space-x-1">
-                <Clock size={16} />
-                <span>Takes ~3 minutes</span>
-                </div>
-                <div className="w-1 h-1 bg-white/40 rounded-full"></div>
-                <div className="flex items-center space-x-1">
-                <Shield size={16} />
-                <span>Secure & Private</span>
-                </div>
-            </div>
+        <div className="min-h-screen bg-white">
+            {/* Background Elements */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl"></div>
             </div>
 
-            {/* Form Fields */}
-            <div className="space-y-8">
-            {formData.fields.map((field, index) => (
-                <div key={field.id} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                <div className="mb-6">
-                    <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-white flex items-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500/20 rounded-lg text-blue-300 text-sm font-medium mr-3">
-                        {index + 1}
-                        </span>
-                        {field.question}
-                    </h3>
-                    {field.required && (
-                        <span className="text-red-400 text-sm font-medium">Required</span>
-                    )}
+            <div className="relative z-10 max-w-3xl mx-auto px-4 py-12">
+                {/* Form Header */}
+                <div className="text-center mb-12">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-100 rounded-2xl mb-6">
+                        <FileText className="text-gray-700" size={32} />
                     </div>
-                    {errors[field.id] && (
-                    <p className="text-red-400 text-sm mt-1 flex items-center">
-                        <AlertCircle size={16} className="mr-1" />
-                        {errors[field.id]}
-                    </p>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-4">{formData.title}</h1>
+                    {formData.description && (
+                        <p className="text-gray-600 text-base max-w-2xl mx-auto">
+                            {formData.description}
+                        </p>
                     )}
+                    <div className="flex items-center justify-center space-x-4 mt-5 text-gray-500 text-sm">
+                        <div className="flex items-center space-x-1">
+                            <Clock size={16} />
+                            <span>Takes ~3 minutes</span>
+                        </div>
+                        <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                        <div className="flex items-center space-x-1">
+                            <Shield size={16} />
+                            <span>Secure & Private</span>
+                        </div>
+                    </div>
                 </div>
 
-                {renderField(field)}
-                </div>
-            ))}
-            </div>
+                {/* Form Fields */}
+                <div className="space-y-4">
+                    {formData.fields.map((field, index) => (
+                        <div key={field.id} className="bg-gray-50/50 border border-gray-200 rounded-2xl p-4">
+                            <div className="mb-4">
+                                <div className="flex items-start justify-between mb-2">
+                                    <h3 className="text-lg font-semibold text-gray-900 flex items-center">
+                                        <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-500/20 rounded-lg text-blue-700 text-sm font-medium mr-3">
+                                            {index + 1}
+                                        </span>
+                                        {field.question}
+                                    </h3>
+                                    {field.required && (
+                                        <span className="text-red-500 text-sm font-medium">Required</span>
+                                    )}
+                                </div>
+                                {errors[field.id] && (
+                                    <p className="text-red-500 text-sm mt-1 flex items-center">
+                                        <AlertCircle size={16} className="mr-1" />
+                                        {errors[field.id]}
+                                    </p>
+                                )}
+                            </div>
 
-            {/* Submit Button */}
-            <div className="mt-12 text-center">
-            <button
-                onClick={handleSubmit}
-                disabled={submitting}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100 flex items-center space-x-2 mx-auto"
-            >
-                {submitting ? (
-                <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Submitting...</span>
-                </>
-                ) : (
-                <>
-                    <Send size={20} />
-                    <span>Submit Response</span>
-                </>
-                )}
-            </button>
-            
-            <p className="text-white/40 text-sm mt-4">
-                By submitting this form, you agree to have your responses stored securely.
-            </p>
+                            {renderField(field)}
+                        </div>
+                    ))}
+                </div>
+
+                {/* Submit Button */}
+                <div className="mt-12 text-center">
+                    <button
+                        onClick={handleSubmit}
+                        disabled={submitting}
+                        className="bg-gradient-to-r from-red-500 to-blue-500 hover:from-blue-600 hover:to-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100 flex items-center space-x-2 mx-auto"
+                    >
+                        {submitting ? (
+                            <>
+                                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                                <span>Submitting...</span>
+                            </>
+                        ) : (
+                            <>
+                                <Send size={20} />
+                                <span>Submit Response</span>
+                            </>
+                        )}
+                    </button>
+                    
+                    <p className="text-gray-500 text-sm mt-4">
+                        By submitting this form, you agree to have your responses stored securely.
+                    </p>
+                </div>
             </div>
-        </div>
         </div>
     );
 };

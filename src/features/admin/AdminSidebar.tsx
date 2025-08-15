@@ -13,9 +13,13 @@ import {
     Settings, 
     LogOut,
     X,
-    FileText
+    FileText,
+    Calendar,
+    Mails
 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '@/assets/logo/black-logo.png'
 
 interface AdminSidebarProps {
     isOpen: boolean;
@@ -43,7 +47,7 @@ const SidebarItem = ({ icon, label, href, isActive, onClick }: SidebarItemProps)
         <div className={`transition-transform duration-200 ${isActive ? 'scale-110' : 'group-hover:scale-105'}`}>
             {icon}
         </div>
-        <span className="font-medium">{label}</span>
+        <span className="font-medium text-[.9em]">{label}</span>
         {isActive && (
             <div className="w-2 h-2 bg-white rounded-full ml-auto animate-pulse" />
         )}
@@ -78,6 +82,16 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             href: '/admin/dashboard/tutors',
         },
         {
+            icon: <Calendar size={20} />,
+            label: 'Events',
+            href: '/admin/dashboard/events',
+        },
+        {
+            icon: <Mails size={20} />,
+            label: 'Mails',
+            href: '/admin/dashboard/mails',
+        },
+        {
             icon: <FileText size={20} />,
             label: 'Forms',
             href: '/admin/dashboard/forms',
@@ -94,19 +108,28 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             {/* Sidebar */}
             <div className={`${
                 isOpen ? 'translate-x-0' : '-translate-x-full'
-            } fixed inset-y-0 left-0 z-50 w-72 bg-black border-r border-gray-700/50 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 shadow-2xl`}>
+            } fixed inset-y-0 left-0 z-50 w-72 h-full bg-black border-r border-gray-700/50 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 shadow-2xl`}>
                 
                 {/* Header */}
                 <div className="flex items-center justify-between h-20 px-6 border-b border-gray-700/50">
                     <div className="flex items-center space-x-3">
                         <div className="relative">
-                            <Shield className="w-10 h-10 text-red-500" />
+                            {/* <Shield className="w-10 h-10 text-red-500" /> */}
+                            <div className='w-auto h-[35px]'>
+                                <Image
+                                    src={Logo}
+                                    alt="logo"
+                                    width={80}
+                                    height={30}
+                                    className="w-full h-full object-contain"
+                                />
+                            </div>
                             <div className="absolute inset-0 w-10 h-10 text-red-500 animate-ping opacity-20">
                                 <Shield className="w-10 h-10" />
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-lg font-bold text-white">TSI Admin Panel</h2>
+                            <h2 className="text-xs lg:text-lg font-bold text-white">Admin Panel</h2>
                             <p className="text-xs text-gray-400">Management System</p>
                         </div>
                     </div>
@@ -120,7 +143,7 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
 
                 {/* Admin Info */}
                 {admin && (
-                    <div className="p-6 border-b border-gray-700/50">
+                    <div className="px-6 py-2 border-b border-gray-700/50">
                         <div className="flex items-center space-x-3">
                             <div className="w-12 h-12 bg-gradient-to-br from-red-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg">
                                 <span className="text-white font-semibold text-lg">
@@ -157,13 +180,13 @@ export default function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
                 </nav>
 
                 {/* Logout Button */}
-                <div className="p-4 border-t border-gray-700/50">
+                <div className="mt-auto p-4 border-t border-gray-700/50">
                     <button
                         onClick={handleLogout}
                         className="flex items-center space-x-3 px-4 py-3 w-full text-gray-300 hover:bg-red-500/10 hover:text-red-400 rounded-xl transition-all duration-200 group"
                     >
                         <LogOut size={20} className="group-hover:rotate-12 transition-transform duration-200" />
-                        <span className="font-medium">Sign Out</span>
+                        <span className="font-medium text-[.9em]">Sign Out</span>
                     </button>
                 </div>
             </div>

@@ -79,27 +79,25 @@ const AdminFormsPage = () => {
         }
     };
 
-    // const handleCreateForm = async (formData: Omit<FormData, 'id'>) => {
-    //     try {
-    //         await addDoc(collection(db, 'forms'), formData);
-    //         await loadForms();
-    //         setShowFormBuilder(false);
-    //     } catch (error) {
-    //         console.error('Error creating form:', error);
-    //     }
-    // };
-
     const handleCreateForm = async (formData: Omit<FormData, 'id'>) => {
         try {
+            setLoading(true); // Add this line to show loading state
+            
             // Clean the form data to remove any undefined values
             const cleanFormData = {
                 title: formData.title || '',
                 description: formData.description || '',
-                fields: formData.fields || [],
+                fields: formData.fields.map(field => ({
+                    id: field.id,
+                    type: field.type,
+                    question: field.question || '',
+                    required: Boolean(field.required),
+                    ...(field.options && field.options.length > 0 ? { options: field.options } : {})
+                })),
                 slug: formData.slug || '',
-                isActive: formData.isActive ?? true,
+                isActive: Boolean(formData.isActive),
                 createdAt: serverTimestamp(),
-                responses: formData.responses || 0
+                responses: 0
             };
     
             console.log('Attempting to save form data:', cleanFormData);
@@ -111,12 +109,9 @@ const AdminFormsPage = () => {
             setShowFormBuilder(false);
         } catch (error: any) {
             console.error('Error creating form:', error);
-            // Log the exact error details
-            console.error('Error details:', {
-                code: error.code,
-                message: error.message,
-                formData: formData
-            });
+            alert('Error creating form. Please try again.');
+        } finally {
+            setLoading(false); // Add this line to hide loading state
         }
     };
 
@@ -187,7 +182,7 @@ const AdminFormsPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-900">
             {/* Header */}
             <div className="relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-purple-800 rounded-3xl m-6 p-8 text-white">
                 <div className="absolute inset-0 bg-black/20"></div>
@@ -314,10 +309,14 @@ const AdminFormsPage = () => {
                         {forms.length === 0 && (
                             <button
                                 onClick={() => setShowFormBuilder(true)}
-                                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-2 mx-auto"
+                                disabled={loading}
+                                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm px-6 py-3 rounded-xl font-medium transition-all duration-200 flex items-center space-x-2 disabled:opacity-50"
                             >
+                                {loading && (
+                                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                                )}
                                 <Plus size={20} />
-                                <span>Create Your First Form</span>
+                                <span>Create New Form</span>
                             </button>
                         )}
                     </div>

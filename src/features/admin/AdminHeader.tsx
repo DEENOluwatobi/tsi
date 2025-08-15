@@ -58,7 +58,7 @@ export default function AdminHeader({ onMenuClick }: AdminHeaderProps) {
                 </button>
                 
                 <div className="flex flex-col">
-                    <h1 className="text-xl font-bold text-white">
+                    <h1 className="text-lg font-semibold text-white">
                         {pageTitle}
                     </h1>
                     <nav className="flex items-center space-x-2 text-sm text-gray-400">

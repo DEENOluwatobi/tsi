@@ -74,9 +74,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
                 {/* Main Content */}
                 <main className="flex-1 overflow-x-hidden overflow-y-auto bg-black">
-                    <div className="container mx-auto px-4 py-8 lg:px-8">
+                    <div className="container mx-auto px-2 py-4 lg:px-4">
                         {/* Content Container with subtle border */}
-                        <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 min-h-[calc(100vh-12rem)] p-6 shadow-2xl">
+                        <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 min-h-[calc(100vh-12rem)] p-4 shadow-2xl">
                             {children}
                         </div>
                     </div>

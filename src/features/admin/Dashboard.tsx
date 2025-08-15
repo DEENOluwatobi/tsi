@@ -196,13 +196,13 @@ export default function AdminDashboard() {
     return (
         <div className="space-y-8">
             {/* Welcome Section */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-blue-800 rounded-3xl p-8 text-white">
+            <div className="relative overflow-hidden bg-gradient-to-br from-red-600 via-red-700 to-blue-800 rounded-2xl py-6 px-8 text-white">
                 <div className="absolute inset-0 bg-black/20"></div>
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-white/5 to-transparent rounded-full transform translate-x-32 -translate-y-32"></div>
                 <div className="relative z-10">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h1 className="text-4xl font-bold mb-2">
+                            <h1 className="text-3xl font-bold mb-2">
                                 Welcome back, {admin?.firstname}! 👋
                             </h1>
                             <p className="text-red-100 text-lg opacity-90">
@@ -210,8 +210,8 @@ export default function AdminDashboard() {
                             </p>
                         </div>
                         <div className="hidden lg:block">
-                            <div className="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <Activity size={48} className="text-white/80" />
+                            <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
+                                <Activity size={38} className="text-white/80" />
                             </div>
                         </div>
                     </div>
